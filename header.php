@@ -8,6 +8,9 @@
     <!-- Add the AdminLTE stylesheets -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- AdminLTE CSS -->
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">

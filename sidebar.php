@@ -65,7 +65,15 @@
                         </p>
                     </a>
                 </li>
-                
+                <li class="nav-item">
+                    <a href="profile.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'profile.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Profile
+                        </p>
+                    </a>
+                </li>
+
                 <li class="nav-item" ><a href="logout.php"class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? 'active' : ''; ?>">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>

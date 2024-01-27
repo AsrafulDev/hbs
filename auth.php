@@ -22,6 +22,7 @@ function authenticate($username, $password) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $username;
+           $_SESSION['user_id'] =  $row['id'];
             mysqli_close($conn);
             return true;
         }

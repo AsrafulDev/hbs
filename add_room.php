@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 include('db_connection.php');
 
 $pageTitle = "Add Room";
@@ -31,19 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 include('header.php');
 ?>
 
-<!-- Your Add Room page content goes here -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Add Room
-        </h1>
-    </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 card">
                 <div class="box box-primary">
                     <div class="box-body">
                         <form action="add_room.php" method="post">
@@ -78,8 +74,6 @@ include('header.php');
         </div>
     </section>
     <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 <?php
 // Include footer

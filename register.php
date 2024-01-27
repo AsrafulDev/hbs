@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 include('db_connection.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,7 +33,7 @@ mysqli_close($conn);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
 
     <!-- Add the AdminLTE stylesheets -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">

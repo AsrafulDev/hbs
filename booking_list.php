@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 include('db_connection.php');
 include('header.php');
 
@@ -8,8 +12,6 @@ $fetchBookingsQuery = "SELECT * FROM bookings";
 $bookingsResult = mysqli_query($conn, $fetchBookingsQuery);
 ?>
 
-<!-- Your Booking List page content goes here -->
-<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -63,8 +65,7 @@ $bookingsResult = mysqli_query($conn, $fetchBookingsQuery);
         </div>
     </section>
     <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+
 
 <?php
 include('footer.php');

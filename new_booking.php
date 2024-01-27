@@ -1,7 +1,13 @@
 <?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 include('db_connection.php');
+$pageTitle = "New Booking";
 include('header.php');
+
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -78,19 +84,14 @@ $fetchPackagesQuery = "SELECT * FROM booking_packages";
 $packagesResult = mysqli_query($conn, $fetchPackagesQuery);
 ?>
 
-<!-- Your New Booking page content goes here -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            New Booking
-        </h1>
-    </section>
 
     <!-- Main content -->
     <section class="content">
-        <!-- New booking form -->
-        <form action="new_booking.php" method="post">
+        <div class="row">
+            <div class="col-md-6 card">
+                <div class="box box-primary">
+                    <div class="box-body card">
+                    <form action="new_booking.php" method="post">
             <!-- Room number selection -->
             <div class="form-group">
                 <label for="room_number">Select Room Number:</label>
@@ -143,10 +144,11 @@ $packagesResult = mysqli_query($conn, $fetchPackagesQuery);
             <!-- Submit button -->
             <button type="submit" class="btn btn-primary">Add Booking</button>
         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 <?php
 include('footer.php');
