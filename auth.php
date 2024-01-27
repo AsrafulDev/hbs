@@ -23,6 +23,7 @@ function authenticate($username, $password) {
         if (password_verify($password, $row['password'])) {
             $_SESSION['user'] = $username;
            $_SESSION['user_id'] =  $row['id'];
+           $_SESSION['user_role'] =  $row['role'];
             mysqli_close($conn);
             return true;
         }

@@ -76,11 +76,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </form>
                 <p class="mb-1">
-                    <a href="forgot_password_form.php">I forgot my password</a>
+                    <a href="forgot_password.php">I forgot my password</a>
                 </p>
-                <p class="mb-0">
-                    <a href="register.php" class="text-center">Register a new membership</a>
-                </p>
+               
             </div>
             <!-- /.login-card-body -->
         </div>

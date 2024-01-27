@@ -81,7 +81,14 @@
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="register.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'register.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-user-plus"></i>
+                        <p>
+                            Add User
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item" ><a href="logout.php"class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'logout.php') ? 'active' : ''; ?>">
                 <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>

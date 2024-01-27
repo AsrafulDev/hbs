@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $deleteTokenQuery = "DELETE FROM password_resets WHERE email = '$email' AND token = '$token'";
                 mysqli_query($conn, $deleteTokenQuery);
 
-                echo "Password updated successfully. You can now <a href='login.php'>login</a> with your new password.";
+                echo "Password updated successfully. You can now <a href='index.php'>login</a> with your new password.";
             } else {
                 echo "Error updating password: " . mysqli_error($conn);
             }

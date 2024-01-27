@@ -21,8 +21,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Send an email to the user with a link to reset their password
             $resetLink = "http://localhost/hbs/reset_password_form.php?email=$email&token=$token";
             // Implement your email sending logic here
-
-            echo "An email has been sent to your email address with instructions to reset your password.";
+            $to = "$email"; // Replace with the recipient's email address
+            $subject = "Email sending form HBS to reset password";
+            $message = "Go to this Link for reset Hotel Booking System .$resetLink";
+            
+            $headers = "From: asraful2001a@gmail.com"; // Replace with the sender's email address
+            
+            if (mail($to, $subject, $message, $headers)) {
+                echo "Email sent successfully.";
+                echo "An email has been sent to your email address with instructions to reset your password.";
+            } else {
+                echo "Email sending failed.";
+            }
+           
         } else {
             echo "Error generating reset token: " . mysqli_error($conn);
         }
