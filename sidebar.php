@@ -34,6 +34,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="invoice_list.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'invoice_list.php') ? 'active' : ''; ?>">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            Invoice List
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="add_room.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'add_room.php') ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>

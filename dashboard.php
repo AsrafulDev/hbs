@@ -11,7 +11,14 @@ $pageTitle = "Dashboard";
 $totalBookingsQuery = "SELECT COUNT(*) AS total_bookings FROM bookings";
 $totalBookingsResult = mysqli_query($conn, $totalBookingsQuery);
 $totalBookings = mysqli_fetch_assoc($totalBookingsResult)['total_bookings'];
-
+// Get total Unpaid
+$totalUnpaidRevenueQuery = "SELECT SUM(unpaid_amount) AS total_unpaid_revenue FROM bookings";
+$totalUnpaidRevenueResult = mysqli_query($conn, $totalUnpaidRevenueQuery);
+$totalUnpaidRevenue = mysqli_fetch_assoc($totalUnpaidRevenueResult)['total_unpaid_revenue'];
+// Get total paid 
+$totalPaidRevenueQuery = "SELECT SUM(paid_amount) AS total_paid_revenue FROM bookings";
+$totalPaidRevenueResult = mysqli_query($conn, $totalPaidRevenueQuery);
+$totalPaidRevenue = mysqli_fetch_assoc($totalPaidRevenueResult)['total_paid_revenue'];
 // Get total revenue
 $totalRevenueQuery = "SELECT SUM(total_amount) AS total_revenue FROM bookings";
 $totalRevenueResult = mysqli_query($conn, $totalRevenueQuery);
@@ -44,7 +51,7 @@ include('header.php');
     <section class="content">
         <div class="row">
             <!-- Booking Statistics Card -->
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="info-box">
                     <span class="info-box-icon bg-aqua"><i class="fa fa-book"></i></span>
                     <div class="info-box-content">
@@ -53,11 +60,29 @@ include('header.php');
                     </div>
                 </div>
             </div>
-
-            <!-- Total Revenue Card -->
-            <div class="col-md-4">
+            <!-- Total Unpaid Revenue Card -->
+            <div class="col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-red"><i class="fa fa-dollar-sign"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Unpaid Revenue</span>
+                        <span class="info-box-number">$<?php echo number_format($totalUnpaidRevenue, 2); ?></span>
+                    </div>
+                </div>
+            </div>  <!-- Total Paid Revenue Card -->
+            <div class="col-md-2">
                 <div class="info-box">
                     <span class="info-box-icon bg-green"><i class="fa fa-dollar-sign"></i></span>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Total Paid Revenue</span>
+                        <span class="info-box-number">$<?php echo number_format($totalPaidRevenue, 2); ?></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Total Revenue Card -->
+            <div class="col-md-2">
+                <div class="info-box">
+                    <span class="info-box-icon bg-orange"><i class="fa fa-dollar-sign"></i></span>
                     <div class="info-box-content">
                         <span class="info-box-text">Total Revenue</span>
                         <span class="info-box-number">$<?php echo number_format($totalRevenue, 2); ?></span>
@@ -66,7 +91,7 @@ include('header.php');
             </div>
 
             <!-- Monthly Recap Report Card -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="info-box">
                     <span class="info-box-icon bg-yellow"><i class="fa fa-calendar"></i></span>
                     <div class="info-box-content">
